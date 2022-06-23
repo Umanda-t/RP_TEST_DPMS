@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Update Success</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+    <h2>Successfully Updated!</h2>
+<!--    <span>User Name:</span><span th:text="${bst.username}"></span><br/>-->
+    <span>Blood Sugar Level:</span><span th:text="${bst.bloodsugar}"></span><br/>
+    <span>Date:</span><span th:text="${bst.date}"></span><br/>
+    <span>Time:</span><span th:text="${bst.time}"></span><br/>
+    <span>Period:</span><span th:text="${bst.period}"></span><br/>
+
+<br/><br/> <br/>
+    <h3><a th:href="@{/BSTAR}"> Blood Sugar Tracker All Records</a></h3>
+</div>
+</body>
+</html>

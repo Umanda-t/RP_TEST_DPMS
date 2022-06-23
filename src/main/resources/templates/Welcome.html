@@ -5,7 +5,7 @@
     <title>Welcome</title>
 </head>
 <body>
-<div class="container text-center">
+<div class="container text-center" align="center">
     <div>
         <form th:action="@{/logout}" method="post">
             <p>
@@ -17,6 +17,9 @@
 
     <div>
         <h1>Welcome</h1>
+
+        <h3><a th:href="@{/BS_Tracker}"> Blood Sugar Tracker </a></h3>
+        <h3><a th:href="@{/BP_Tracker}"> Blood Pressure Tracker</a></h3>
     </div>
 </div>
 </body>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>BST</title>
+</head>
+<body>
+<div class="container text-center" align="center">
+  <div>
+    <form th:action="@{/logout}" method="post">
+      <p>
+        Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+      </p>
+      <input type="submit" value="Sign Out" />
+    </form>
+  </div>
+
+  <div>
+    <h1>Welcome</h1>
+
+    <h3><a th:href="@{/BSTDU}"> Blood Sugar Tracker Daily Update</a></h3>
+    <h3><a th:href="@{/BSTAR}"> Blood Sugar Tracker All Records</a></h3>
+  </div>
+</div>
+</body>
+</html>

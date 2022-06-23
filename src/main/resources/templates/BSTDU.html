@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>BSTDU</title>
+  <script type = "text/javascript">
+  </script>
+</head>
+<body>
+<div class="container text-center">
+  <div>
+    <form th:action="@{/logout}" method="post">
+      <p>
+        Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+      </p>
+      <input type="submit" value="Sign Out" />
+    </form>
+  </div>
+
+  <div>
+
+
+    <div align="center">
+      <h1>Blood Sugar Tracker Daily Update</h1>
+      <form action="#" th:action="@{/add_update}" method="post" th:object="${bst}">
+        <label>User Name:</label>
+        <input type="text" th:field="*{username}" readonly="readonly"/><br/>
+
+        <label>Blood Sugar Level:</label>
+        <input type="text" th:field="*{bloodsugar}" /><br/>
+
+        <label>Date:</label>
+        <input type="date" th:field="*{date}" /><br/>
+
+        <label>Time:</label>
+        <input type="time" th:field="*{time}" /><br/>
+
+
+        <label>Period:</label>
+        <input th:field="*{period}" list="list" maxlength="50" placeholder="After Dinner">
+          <datalist id="list">
+            <option  value="Before Breakfast"/>
+            <option  value="After Breakfast"/>
+          <option  value="Before Lunch"/>
+            <option  value="After Lunch"/>
+            <option  value="Before Dinner"/>
+          <option  value="After Dinner"/>
+
+
+          </datalist>
+
+
+        <button type="submit">Add</button>
+      </form>
+    </div>
+
+
+
+
+
+
+
+    <h3><a th:href="@{/BSTAR}"> Blood Sugar Tracker All Records</a></h3>
+  </div>
+</div>
+</body>
+</html>
