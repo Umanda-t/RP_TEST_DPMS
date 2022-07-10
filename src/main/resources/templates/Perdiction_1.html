@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Risk Prediction</title>
+    <script type = "text/javascript">
+    </script>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+
+    <div>
+
+
+        <div align="center">
+            <h1> Diabetes Risk Prediction</h1>
+            <form action="#" th:action="@{/Get_Prediction_1}" method="post" th:object="${p1}">
+<table>
+             <tr> <td>   <label>What is your age?</label> </td>
+                 <td><input type="number" th:field="*{age}" /><br/> </td></tr>
+
+            <tr> <td>  <label>What is your BMI in (kg/m)?</label></td>
+                <td><input type="number" step="any" th:field="*{BMI}" /><br/></td> </tr>
+
+             <tr> <td>   <label>What is the current glucose level in (mg/dL)?</label></td>
+                 <td><input type="number" th:field="*{glucose}" /><br/></td> </tr>
+
+            <tr> <td>   <label>What is your current blood pressure level in (mm Hg) ?</label></td>
+                <td><input type="number" th:field="*{bloodPressure}" /><br/> </td></tr>
+
+            <tr> <td>   <label>What is the number of times you get pregnant?</label></td>
+                <td><input type="number" th:field="*{pregnancies}" /><br/></td> </tr>
+
+            <tr><td>    <label>What is your skin thickness in (mm) ? </br>
+                 ( Normally skin thickness of a man is  12mm and a women is 23mm ) </label> </td>
+                <td><input type="number" th:field="*{skinThickness}"/><br/></td> </tr>
+
+            <tr> <td>   <label>What is your insulin level in (mu U/ml)?</label> </td>
+                <td><input type="number" th:field="*{insulin}" /><br/></td> </tr>
+
+
+
+</table>
+
+            <button type="submit"> Get Prediction </button>
+
+</form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

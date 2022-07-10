@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Perdiction Results</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+
+    <h1>Diabetes Risk Prediction Percentage(%) =<span th:text="${result1}"></span> </h1>
+
+
+</div>
+</body>
+</html>
