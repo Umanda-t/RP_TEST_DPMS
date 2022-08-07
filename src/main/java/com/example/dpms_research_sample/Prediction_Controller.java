@@ -25,7 +25,10 @@ public class Prediction_Controller {
 
          Prediction_1_Model p=new Prediction_1_Model();
          float result1=p.GetPrediction(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,BMI,Age);
+         Prediction_1_Accuracy a=new Prediction_1_Accuracy();
+         float accuracy=a.GetAccuracy();
         model.addAttribute("result1", result1);
+        model.addAttribute("accuracy", accuracy);
          return "Perdiction_1_Results";
 
     }

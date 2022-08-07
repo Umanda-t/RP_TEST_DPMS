@@ -27,29 +27,27 @@
         <input type="text" th:field="*{username}" readonly="readonly"/><br/>
 
         <label>Blood Sugar Level:</label>
-        <input type="text" th:field="*{bloodsugar}" /><br/>
+        <input type="text" th:field="*{bloodsugar}" required /><br/>
 
         <label>Date:</label>
-        <input type="date" th:field="*{date}" /><br/>
+        <input type="date" th:field="*{date}" required /><br/>
 
         <label>Time:</label>
-        <input type="time" th:field="*{time}" /><br/>
+        <input type="time" th:field="*{time}" required /><br/>
 
 
         <label>Period:</label>
-        <input th:field="*{period}" list="list" maxlength="50" placeholder="After Dinner">
-          <datalist id="list">
-            <option  value="Before Breakfast"/>
-            <option  value="After Breakfast"/>
-          <option  value="Before Lunch"/>
-            <option  value="After Lunch"/>
-            <option  value="Before Dinner"/>
-          <option  value="After Dinner"/>
+        <select th:field="*{period}" list="list" maxlength="50" placeholder="After Dinner" required>
 
+            <option  value="Before Breakfast">Before Breakfast</option>
+            <option  value="After Breakfast"> After Breakfast </option>
+          <option  value="Before Lunch"> Before Lunch </option>
+            <option  value="After Lunch"> After Lunch </option>
+            <option  value="Before Dinner"> Before Dinner </option>
+          <option  value="After Dinner"> After Dinner </option>
 
-          </datalist>
-
-
+        </select>
+       <br/>
         <button type="submit">Add</button>
       </form>
     </div>
@@ -60,7 +58,7 @@
 
 
 
-    <h3><a th:href="@{/BSTAR}"> Blood Sugar Tracker All Records</a></h3>
+<!--    <h3><a th:href="@{/BSTAR}"> Blood Sugar Tracker All Records</a></h3>-->
   </div>
 </div>
 </body>

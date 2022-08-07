@@ -15,4 +15,9 @@ public interface BSTRepository extends JpaRepository<BST,Long> {
 
 
     //@Query("SELECT p FROM BST p WHERE p.username LIKE %?1%")
+    @Query("SELECT count(p.bloodsugar)FROM BST p WHERE p.username = :username")
+    public int Findcount(@Param("username") User username);
+
+    @Query("SELECT SUM(p.bloodsugar)FROM BST p WHERE p.username = :username")
+    public float FindSum(@Param("username") User username);
 }

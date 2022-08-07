@@ -51,11 +51,19 @@ public class BST_Controller {
     public String BSTAllRecordsPage(Model model,@CurrentSecurityContext(expression="authentication?.name")String un) {
         un = ((CustomUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getFullName();
         User user= userRepo.findByUsername(un);
-        List<BST> listBST = bstrepo.search(user);
-       // List<BST> listBST = service.listAll(u);
+        int count=bstrepo.Findcount(user);
+        if (count==0)
+         {
+             return "redirect:/BSTDU";
+         }
+         else{
+             List<BST> listBST = bstrepo.search(user);
+             float sum=bstrepo.FindSum(user);
+             float avg=sum/count;
         model.addAttribute("listBST", listBST);
-
+        model.addAttribute("avg", avg);
         return "/BSTAR";
+         }
     }
     @GetMapping("/delete/{id}")
     public String deleteRecord(@PathVariable(name = "id") int id) {

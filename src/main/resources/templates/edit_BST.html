@@ -28,33 +28,31 @@
             <tr>
                 <td>Date:</td>
                 <td>
-                    <input type="date" th:field="*{date}" />
+                    <input type="date" th:field="*{date}" required/>
                 </td>
             </tr>
             <tr>
                 <td>Blood Sugar Level:</td>
                 <td>
-                    <input type="text" th:field="*{bloodsugar}" />
+                    <input type="text" th:field="*{bloodsugar}" required />
                 </td>
             </tr>
             <tr>
                 <td>Time:</td>
-                <td><input type="time" th:field="*{time}" /></td>
+                <td><input type="time" th:field="*{time}" required /></td>
             </tr>
             <tr>
                 <td>Period:</td>
-                <td><input type="text" th:field="*{period}" list="list" />
-                    <datalist id="list">
-                        <option  value="Before Breakfast"/>
-                        <option  value="After Breakfast"/>
-                        <option  value="Before Lunch"/>
-                        <option  value="After Lunch"/>
-                        <option  value="Before Dinner"/>
-                        <option  value="After Dinner"/>
+                <td><select type="text" th:field="*{period}" required/>
+                    <option  value="Before Breakfast">Before Breakfast</option>
+                    <option  value="After Breakfast"> After Breakfast </option>
+                    <option  value="Before Lunch"> Before Lunch </option>
+                    <option  value="After Lunch"> After Lunch </option>
+                    <option  value="Before Dinner"> Before Dinner </option>
+                    <option  value="After Dinner"> After Dinner </option>
 
+                  <select/>
 
-                    </datalist>
-                </td>
             </tr>
             <tr>
                 <td colspan="2"><button type="submit">Save</button> </td>
