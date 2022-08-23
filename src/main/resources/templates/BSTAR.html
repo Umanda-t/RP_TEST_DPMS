@@ -9,6 +9,11 @@
 <div align="center">
   <h1>Blood Sugar Tracker All Records</h1>
   <br/><br/>
+  <h3>Average Blood Sugar Level= <span th:text="${avg}"></span></h3>
+  <br/><br/>
+  <h4><span th:text="${m}"></span></h4>
+  <br/><br/>
+
   <table border="1" cellpadding="10">
     <thead>
     <tr>
@@ -35,7 +40,7 @@
     </tbody>
   </table>
 <br/>
-  <h3>Average Blood Sugar Level= <span th:text="${avg}"></span></h3>
+
   <h3><a th:href="@{/BSTDU}"> Blood Sugar Tracker Daily Update</a></h3>
 </div>
 </body>

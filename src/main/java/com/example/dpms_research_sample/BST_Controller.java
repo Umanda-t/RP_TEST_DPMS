@@ -41,9 +41,49 @@ public class BST_Controller {
     }
 
     @PostMapping("/add_update")
-    public String processRegister(@ModelAttribute("bst")BST bst) {
+    public String processRegister(@ModelAttribute("bst")BST bst,Model model) {
         bstrepo.save(bst);
         System.out.println(bst);
+        float BS=bst.getBloodsugar();
+        String P=bst.getPeriod();
+        if(P.equals("Before Breakfast")||P.equals("Before Lunch")||P.equals("Before Dinner"))
+        {
+            if(BS<=69.99)
+          {
+              model.addAttribute("m", "Your Blood Sugar Level is very low.");
+          }
+            else if (BS>=70.00 && BS<=99.99)
+          {
+              model.addAttribute("m", "Your Blood Sugar Level is normal.");
+          }
+            else if (BS>=100 && BS<=125.99)
+          {
+              model.addAttribute("m", "Your Blood Sugar Level is bit high.");
+          }
+            else if (BS>=126.00)
+          {
+              model.addAttribute("m", "Your Blood Sugar Level is very high. Please try to follow healthy life style and have healthy meals.");
+          }
+        }
+        else
+        {
+            if(BS<=69.99)
+            {
+                model.addAttribute("m", "Your Blood Sugar Level is very low.");
+            }
+            else if (BS>=70.00 && BS<140.00)
+            {
+                model.addAttribute("m", "Your Blood Sugar Level is normal.");
+            }
+            else if (BS>=140.00 && BS<200.00)
+            {
+                model.addAttribute("m", "Your Blood Sugar Level is bit high.");
+            }
+            else if (BS>=200.00)
+            {
+                model.addAttribute("m", "Your Blood Sugar Level is very high. Please try to follow healthy life style and have healthy meals.");
+            }
+        }
         return "update_success";
     }
 
@@ -60,8 +100,18 @@ public class BST_Controller {
              List<BST> listBST = bstrepo.search(user);
              float sum=bstrepo.FindSum(user);
              float avg=sum/count;
+
         model.addAttribute("listBST", listBST);
         model.addAttribute("avg", avg);
+
+            if(avg<126.00)
+            {
+                model.addAttribute("m", "Your Average Blood Sugar Level is normal");
+            }
+            else
+            {
+                model.addAttribute("m", "Your Average Blood Sugar Level is high. Please try to follow healthy life style and have healthy meals.");
+            }
         return "/BSTAR";
          }
     }
