@@ -1,5 +1,8 @@
 package com.example.dpms_research_sample;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -86,22 +89,33 @@ public class BST_Controller {
         }
         return "update_success";
     }
-
     @GetMapping("/BSTAR")
-    public String BSTAllRecordsPage(Model model,@CurrentSecurityContext(expression="authentication?.name")String un) {
+    public String viewBSTARPage(Model model,@CurrentSecurityContext(expression="authentication?.name")String un){
         un = ((CustomUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getFullName();
         User user= userRepo.findByUsername(un);
         int count=bstrepo.Findcount(user);
         if (count==0)
-         {
-             return "redirect:/BSTDU";
-         }
-         else{
-             List<BST> listBST = bstrepo.search(user);
+        {
+            return "redirect:/BSTDU";
+        }
+        else {
+            return BSTAllRecordsPage(model, 1, un);
+        }
+    }
+
+    @GetMapping("/page/{pageNum}")
+    public String BSTAllRecordsPage(Model model,@PathVariable(name = "pageNum") int pageNum,String un) {
+
+        un = ((CustomUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getFullName();
+        User user= userRepo.findByUsername(un);
+        int count=bstrepo.Findcount(user);
+
+
+            // List<BST> listBST = bstrepo.search(user);
              float sum=bstrepo.FindSum(user);
              float avg=sum/count;
 
-        model.addAttribute("listBST", listBST);
+       // model.addAttribute("listBST", listBST);
         model.addAttribute("avg", avg);
 
             if(avg<126.00)
@@ -112,8 +126,19 @@ public class BST_Controller {
             {
                 model.addAttribute("m", "Your Average Blood Sugar Level is high. Please try to follow healthy life style and have healthy meals.");
             }
+
+            //paging
+
+
+            Page<BST> page =  service.findlist(pageNum,user);
+            List<BST> listBST =page.getContent();
+            model.addAttribute("currentPage", pageNum);
+            model.addAttribute("totalPages", page.getTotalPages());
+            model.addAttribute("totalItems", page.getTotalElements());
+            model.addAttribute("listBST", listBST);
+
         return "/BSTAR";
-         }
+
     }
     @GetMapping("/delete/{id}")
     public String deleteRecord(@PathVariable(name = "id") int id) {

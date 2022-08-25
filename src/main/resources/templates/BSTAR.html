@@ -18,7 +18,7 @@
     <thead>
     <tr>
       <th>Date</th>
-      <th>Blood Sugar Level</th>
+      <th>Blood Sugar Level (mg/dL)</th>
       <th>Time</th>
       <th>Period</th>
       <th>Actions</th>
@@ -39,7 +39,20 @@
     </tr>
     </tbody>
   </table>
-<br/>
+  <a th:if="${currentPage > 1}" th:href="@{'/page/1'}">First</a>
+  <span th:unless="${currentPage > 1}">First</span>
+  <a th:if="${currentPage > 1}" th:href="@{'/page/' + ${currentPage - 1}}">Previous</a>
+  <span th:unless="${currentPage > 1}">Previous</span>
+  <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+    <a th:if="${currentPage != i}" th:href="@{'/page/' + ${i}}">[[${i}]]</a>
+    <span th:unless="${currentPage != i}">[[${i}]]</span>
+    &nbsp;
+</span>
+  <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${currentPage + 1}}">Next</a>
+  <span th:unless="${currentPage < totalPages}">Next</span>
+  <a th:if="${currentPage < totalPages}" th:href="@{'/page/' + ${totalPages}}">Last</a>
+  <span th:unless="${currentPage < totalPages}">Last</span>
+  <br/>
 
   <h3><a th:href="@{/BSTDU}"> Blood Sugar Tracker Daily Update</a></h3>
 </div>

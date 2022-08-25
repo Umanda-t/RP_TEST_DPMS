@@ -1,4 +1,6 @@
 package com.example.dpms_research_sample;
+import org.springframework.security.core.annotation.CurrentSecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,14 +27,25 @@ public class AppController {
         return "SignUp";
     }
     @PostMapping("/process_register")
-    public String processRegister(User user) {
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        String encodedPassword = passwordEncoder.encode(user.getPassword());
-          user.setPassword(encodedPassword);
+    public String processRegister(User user,Model model) {
 
-        userRepo.save(user);
+        String un=user.getUsername();
+        String u= userRepo.SearchUsername(un);
 
-        return "SignUp_Success";
+        if (u!=null)
+        {
+            model.addAttribute("ms", "User Name Invalid !  Please use different User Name");
+            return "SignUp";
+        }
+
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = passwordEncoder.encode(user.getPassword());
+            user.setPassword(encodedPassword);
+
+            userRepo.save(user);
+
+            return "SignUp_Success";
+
     }
     @GetMapping("/LoginSuccess")
     public String Welcomepage(Model model) {
