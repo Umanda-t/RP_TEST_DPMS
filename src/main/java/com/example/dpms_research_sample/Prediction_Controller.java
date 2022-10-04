@@ -32,4 +32,56 @@ public class Prediction_Controller {
          return "Perdiction_1_Results";
 
     }
+
+    @GetMapping("/Perdiction_2")
+    public String viewePerdiction_2Page(Model model) {
+        model.addAttribute("p2", new Prediction_2());
+        return "Perdiction_2";
+    }
+    @PostMapping("/Get_Prediction_2")
+    public String processGet_Prediction_2(@ModelAttribute("p2")Prediction_2 p2,Model model){
+         int age=p2.getAge();
+         int gender=p2.getGender();
+         int polyuria= p2.getPolyuria();
+         int polydipsia= p2.getPolydipsia();
+         int weight_loss=p2.getWeight_loss();
+         int weakness=p2.getWeakness();
+         int polyphagia=p2.getPolyphagia();
+         int genital_thrush=p2.getGenital_thrush();
+         int visual_blurring=p2.getVisual_blurring();
+         int itching=p2.getItching();
+         int irritability=p2.getIrritability();
+        int delayed_healing=p2.getDelayed_healing();
+        int partial_paresis=p2.getPartial_paresis();
+         int muscle_stiffness=p2.getMuscle_stiffness();
+        int alopecia=p2.getAlopecia();
+        int obesity=p2.getObesity();
+
+        Prediction_2_Model p=new Prediction_2_Model();
+         String result2=p.getPrediction(age,gender,polyuria, polydipsia, weight_loss, weakness,
+         polyphagia,genital_thrush,visual_blurring,itching,irritability,delayed_healing,
+         partial_paresis,muscle_stiffness,alopecia,obesity);
+
+        Prediction_2_Accuracy a=new Prediction_2_Accuracy();
+        float accuracy=a.GetAccuracy();
+        if(result2.equals("Positive"))
+        {
+            String m="According to the answers you have given, you have possibility to have diabetes in the future. " +
+                    "You can check how much risk you have from Diabetes Risk Prediction. " +
+                    "There is no need to worry about that much but you need to follow healthy life style and eat healthy foods." +
+                    " It is great if you can follow proper workout plan. " +
+                    "By following healthy life style and eat healthy foods you can reduce the risk.";
+            model.addAttribute("m", m);
+        }
+        else
+        {
+            String m="According to the answers you have given, you have less possibility to have diabetes in the future. " +
+                    "By following healthy life style and eat healthy foods you can reduce the risk.";
+            model.addAttribute("m", m);
+        }
+
+        model.addAttribute("accuracy", accuracy);
+        return "Perdiction_2_Results";
+
+    }
 }
