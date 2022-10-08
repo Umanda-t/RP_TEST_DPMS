@@ -7,30 +7,28 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
-import static org.assertj.core.api.Assertions.assertThat;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
-public class BSTRepositoryTests {
+public class WTRepositoryTests {
     @Autowired
     private TestEntityManager entityManager;
 
     @Autowired
     private UserRepository repo;
     @Autowired
-    private BSTRepository bstrepo;
+    private WTRepository wtrepo;
 
     @Test
-    public void testCreateBST() {
+    public void testCreateWT() {
         User user=entityManager.find(User.class,"anne");
-        BST object = new BST();
+        WT object = new WT();
         object.setUsername(user);
-        object.setBloodsugar(99);
-        object.setDate("2022-05-12");
-        object.setTime("12.30");
-        object.setPeriod("After Lunch");
-
-        bstrepo.save(object);
+        object.setWeight(55);
+        object.setHeight(1.65);
+        object.setDate("2022-06-07");
+        wtrepo.save(object);
 
     }
+
 }

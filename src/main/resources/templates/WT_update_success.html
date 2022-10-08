@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>WT Update Success</title>
+    <style type="text/css">
+        span {
+            display: inline-block;
+            width: 200px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+<div align="center">
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+    <h2>Successfully Updated!</h2>
+
+    <span>Weight(kg):</span><span th:text="${wt.weight}"></span><br/>
+    <span>Height(m):</span><span th:text="${wt.height}"></span><br/>
+    <span>Date:</span><span th:text="${wt.date}"></span><br/>
+    <span>BMI:</span><span th:text="${bmi}"></span><br/>
+
+    <br/><br/>
+    <h4><span th:text="${m}"></span></h4>
+    <br/><br/> <br/>
+    <h3><a th:href="@{/WTAR}"> Body Weight Tracker All Records</a></h3>
+
+</div>
+</body>
+</html>

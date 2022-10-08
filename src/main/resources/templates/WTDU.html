@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>WTDU</title>
+    <script type = "text/javascript">
+    </script>
+</head>
+<body>
+<div class="container text-center">
+    <div>
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out" />
+        </form>
+    </div>
+
+    <div>
+
+
+        <div align="center">
+            <h1>Body Weight Tracker Update</h1>
+            <form action="#" th:action="@{/wt_add_update}" method="post" th:object="${wt}">
+                <label>User Name:</label>
+                <input type="text" th:field="*{username}" readonly="readonly"/><br/>
+
+                <label>Weight(kg):</label>
+                <input type="text" th:field="*{weight}" required /><br/>
+
+                <label>Height(m):</label>
+                <input type="text" th:field="*{height}" required /><br/>
+
+                <label>Date:</label>
+                <input type="date" th:field="*{date}" required /><br/>
+
+
+
+                <br/>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
