@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Weight Record </title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Record</h1>
+    <br />
+    <form action="#" th:action="@{/wsave}" th:object="${wt}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Record NO:</td>
+                <td>
+                    <input type="text" th:field="*{id}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>User Name:</td>
+                <td>
+                    <input type="text" th:field="*{username}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td>
+                    <input type="date" th:field="*{date}" required/>
+                </td>
+            </tr>
+            <tr>
+                <td>Weight(kg):</td>
+                <td>
+                    <input type="text" th:field="*{weight}" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Height(m):</td>
+                <td>
+                    <input type="text" th:field="*{height}" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
