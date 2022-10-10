@@ -1,13 +1,18 @@
 package com.example.dpms_research_sample;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class PT_Controller {
@@ -16,6 +21,9 @@ public class PT_Controller {
     private PTRepository ptrepo;
     @Autowired
     private UserRepository userRepo;
+
+    @Autowired
+    private PT_Service pservice;
 
     @GetMapping("/P_Tracker")
     public String P_TrackerPage() {
@@ -81,5 +89,66 @@ public class PT_Controller {
         return "PT_update_success";
     }
 
+    @GetMapping("/PTAR")
+    public String viewPTARPage(Model model,@CurrentSecurityContext(expression="authentication?.name")String un){
+        un = ((CustomUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getFullName();
+        User user= userRepo.findByUsername(un);
+        int count=ptrepo.PFindcount(user);
+        if (count==0)
+        {
+            return "redirect:/PTDU";
+        }
+        else {
+            return PTAllRecordsPage(model, 1, un);
+        }
+    }
 
+
+    @GetMapping("/ppage/{pageNum}")
+    public String PTAllRecordsPage(Model model, @PathVariable(name = "pageNum") int pageNum, String un) {
+
+        un = ((CustomUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getFullName();
+        User user= userRepo.findByUsername(un);
+        int S_count=ptrepo.PFindcount(user);
+        int D_count=ptrepo.PDFindcount(user);
+
+        float S_sum=ptrepo.PFindSum(user);
+        float D_sum=ptrepo.PDFindSum(user);
+
+        float avg1=S_sum/S_count;
+
+        float avg2=D_sum/D_count;
+
+        model.addAttribute("avg1", avg1);
+        model.addAttribute("avg2", avg2);
+
+        Page<PT> page =  pservice.pfindlist(pageNum,user);
+        List<PT> listPT =page.getContent();
+        model.addAttribute("currentPage", pageNum);
+        model.addAttribute("totalPages", page.getTotalPages());
+        model.addAttribute("totalItems", page.getTotalElements());
+        model.addAttribute("listPT", listPT);
+
+        return "/PTAR";
+
+    }
+    @GetMapping("/pdelete/{id}")
+    public String pdeleteRecord(@PathVariable(name = "id") int id) {
+        pservice.pdelete(id);
+        return "redirect:/PTAR";
+    }
+    @GetMapping("/pedit/{id}")
+    public ModelAndView pshowEditPage(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("PT_edit");
+        PT pt = pservice.pget(id);
+        mav.addObject("pt", pt);
+
+        return mav;
+    }
+    @PostMapping("/psave")
+    public String psaveProduct(@ModelAttribute("pt") PT pt) {
+        pservice.psave(pt);
+
+        return "redirect:/PTAR";
+    }
 }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Blood Pressure Tracker All Records</title>
+</head>
+<body>
+<div align="center">
+    <h1>Blood Pressure Tracker All Records</h1>
+    <br/><br/>
+    <h3>Average Systolic Blood Pressure Level= <span th:text="${avg1}"></span></h3>
+    <h3>Average Diastolic Blood Pressure Level= <span th:text="${avg2}"></span></h3>
+    <br/><br/>
+
+
+    <table border="1" cellpadding="10">
+        <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Systolic Blood Pressure(mmHg)</th>
+            <th>Diastolic Blood Pressure(mmHg)</th>
+            <th>Pulse Rate(BMP)</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="pt : ${listPT}">
+
+            <td th:text="${pt.date}">Date</td>
+            <td th:text="${pt.time}">Time</td>
+            <td th:text="${pt.systolic}">Systolic Blood Pressure</td>
+            <td th:text="${pt.diastolic}">Diastolic Blood Pressure</td>
+            <td th:text="${pt.pulse}">Pulse Rate</td>
+            <td>
+                <a th:href="@{'/pedit/' + ${pt.id}}">Edit</a>
+                &nbsp;&nbsp;&nbsp;
+                <a th:href="@{'/pdelete/' + ${pt.id}}">Delete</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:if="${currentPage > 1}" th:href="@{'/ppage/1'}">First</a>
+    <span th:unless="${currentPage > 1}">First</span>
+    <a th:if="${currentPage > 1}" th:href="@{'/ppage/' + ${currentPage - 1}}">Previous</a>
+    <span th:unless="${currentPage > 1}">Previous</span>
+    <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+    <a th:if="${currentPage != i}" th:href="@{'/ppage/' + ${i}}">[[${i}]]</a>
+    <span th:unless="${currentPage != i}">[[${i}]]</span>
+    &nbsp;
+</span>
+    <a th:if="${currentPage < totalPages}" th:href="@{'/ppage/' + ${currentPage + 1}}">Next</a>
+    <span th:unless="${currentPage < totalPages}">Next</span>
+    <a th:if="${currentPage < totalPages}" th:href="@{'/ppage/' + ${totalPages}}">Last</a>
+    <span th:unless="${currentPage < totalPages}">Last</span>
+    <br/>
+
+    <h3><a th:href="@{/PTDU}"> Blood Sugar Tracker Daily Update</a></h3>
+</div>
+</body>
+</html>

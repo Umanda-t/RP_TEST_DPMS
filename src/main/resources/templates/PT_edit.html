@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <title>Edit Record </title>
+</head>
+<body>
+<div align="center">
+    <h1>Edit Record</h1>
+    <br />
+    <form action="#" th:action="@{/psave}" th:object="${pt}"
+          method="post">
+
+        <table border="0" cellpadding="10">
+            <tr>
+                <td>Record NO:</td>
+                <td>
+                    <input type="text" th:field="*{id}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>User Name:</td>
+                <td>
+                    <input type="text" th:field="*{username}" readonly="readonly" />
+                </td>
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td>
+                    <input type="date" th:field="*{date}" required/>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>Time:</td>
+                <td><input type="time" th:field="*{time}" required /></td>
+            </tr>
+
+            <tr>
+            <td>Systolic Blood Pressure (mmHg):</td>
+            <td>
+                <input type="number" th:field="*{systolic}" required />
+            </td>
+            </tr>
+
+            <tr>
+                <td>Diastolic Blood Pressure (mmHg):</td>
+                <td>
+                    <input type="number" th:field="*{diastolic}" required />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Pulse Rate (BMP):</td>
+                <td>
+                    <input type="number" th:field="*{pulse}" required />
+                </td>
+            </tr>
+
+
+            <tr>
+                <td colspan="2"><button type="submit">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
