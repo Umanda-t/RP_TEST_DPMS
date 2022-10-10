@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PTDU</title>
+    <script type = "text/javascript">
+    </script>
+</head>
+<body>
+<div class="container text-center">
+
+
+    <div>
+
+
+        <div align="center">
+            <h1>Blood Pressure Tracker Add Update</h1>
+            <form action="#" th:action="@{/pt_add_update}" method="post" th:object="${pt}">
+                <label>User Name:</label>
+                <input type="text" th:field="*{username}" readonly="readonly"/><br/>
+
+                <label>Systolic Blood Pressure (mmHg):</label>
+                <input type="number" th:field="*{systolic}" required /><br/>
+
+                <label>Diastolic Blood Pressure (mmHg):</label>
+                <input type="number" th:field="*{diastolic}" required /><br/>
+
+                <label>Pulse Rate (BMP):</label>
+                <input type="number" th:field="*{pulse}" required /><br/>
+
+                <label>Date:</label>
+                <input type="date" th:field="*{date}" required /><br/>
+
+                <label>Time:</label>
+                <input type="time" th:field="*{time}" required /><br/>
+
+
+                <br/>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
