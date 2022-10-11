@@ -7,6 +7,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class WT_Service {
@@ -30,5 +32,11 @@ public class WT_Service {
 
     public void wsave(WT wt) {
         wtrepo.save(wt);
+    }
+
+
+    public List<WT> wlistAll(User username) {
+
+        return wtrepo.wsearch(username);
     }
 }

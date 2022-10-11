@@ -56,7 +56,11 @@
     <span th:unless="${currentPage < totalPages}">Last</span>
     <br/>
 
-    <h3><a th:href="@{/PTDU}"> Blood Sugar Tracker Daily Update</a></h3>
+    <h3><a th:href="@{/PTDU}"> Blood Pressure Tracker Daily Update</a></h3>
+
+    <br/> <br/>
+    <button><a th:href="@{/PT_pdf}">Export Blood Pressure Tracker All Records to PDF</a></button>
+
 </div>
 </body>
 </html>

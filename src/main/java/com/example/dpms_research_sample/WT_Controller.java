@@ -1,5 +1,6 @@
 package com.example.dpms_research_sample;
 
+import com.lowagie.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.core.annotation.CurrentSecurityContext;
@@ -12,6 +13,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -131,5 +137,25 @@ public class WT_Controller {
         wservice.wsave(wt);
 
         return "redirect:/WTAR";
+    }
+
+    @GetMapping("/WT_pdf")
+    public void exportToPDF(HttpServletResponse response, @CurrentSecurityContext(expression="authentication?.name")String un) throws DocumentException, IOException {
+        un = ((CustomUserDetails)SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getFullName();
+        User user= userRepo.findByUsername(un);
+
+        response.setContentType("application/pdf");
+        DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
+        String currentDateTime = dateFormatter.format(new Date());
+
+        String headerKey = "Content-Disposition";
+        String headerValue = "attachment; filename=WT_" + currentDateTime + ".pdf";
+        response.setHeader(headerKey, headerValue);
+
+        List<WT> listWT = wservice.wlistAll(user);
+
+        WT_PDFExporter exporter = new WT_PDFExporter(listWT);
+        exporter.export(response);
+
     }
 }

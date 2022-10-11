@@ -6,7 +6,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import java.util.List;
+
 public interface WTRepository extends JpaRepository<WT,Long> {
+    @Query("SELECT w FROM WT w WHERE w.username = :username ORDER BY w.date DESC")
+    public List<WT> wsearch(@Param("username") User username);
 
     @Query("SELECT count(w.weight)FROM WT w WHERE w.username = :username")
     public int WFindcount(@Param("username") User username);
