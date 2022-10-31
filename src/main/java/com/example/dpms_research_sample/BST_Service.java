@@ -31,7 +31,7 @@ public class BST_Service {
         bstrepo.deleteById(id);
     }
     public Page<BST> findlist(int pageNum,User user) {
-        int pageSize = 5;
+        int pageSize = 10;
 
         Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
 

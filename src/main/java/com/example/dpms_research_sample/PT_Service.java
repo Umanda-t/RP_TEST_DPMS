@@ -33,7 +33,7 @@ public class PT_Service {
         ptrepo.deleteById(id);
     }
     public Page<PT> pfindlist(int pageNum, User user) {
-        int pageSize = 5;
+        int pageSize = 10;
 
         Pageable pageable = PageRequest.of(pageNum - 1, pageSize);
 

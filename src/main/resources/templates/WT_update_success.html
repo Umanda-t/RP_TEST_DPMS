@@ -3,36 +3,64 @@
 <head>
     <meta charset="ISO-8859-1">
     <title>WT Update Success</title>
-    <style type="text/css">
-        span {
-            display: inline-block;
-            width: 200px;
-            text-align: left;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+    <meta name="description" content="Website Generator Description">
+
+    <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+    <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+    <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
+
 </head>
 <body>
-<div align="center">
-    <div>
-        <form th:action="@{/logout}" method="post">
-            <p>
-                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-            </p>
-            <input type="submit" value="Sign Out" />
-        </form>
-    </div>
-    <h2>Successfully Added!</h2>
+<div th:insert="header"> </div>
+<section class="header9 cid-tlcOThlGK5" id="header9-q">
+    <br/><br/><br/>
+    <div class="container">
 
-    <span>Weight(kg):</span><span th:text="${wt.weight}"></span><br/>
-    <span>Height(m):</span><span th:text="${wt.height}"></span><br/>
-    <span>Date:</span><span th:text="${wt.date}"></span><br/>
-    <span>BMI:</span><span th:text="${bmi}"></span><br/>
+        <div class="media-container-column mbr-white col-lg-8 col-md-10 m-auto">
 
-    <br/><br/>
-    <h4><span th:text="${m}"></span></h4>
-    <br/><br/> <br/>
-    <h3><a th:href="@{/WTAR}"> Body Weight Tracker All Records</a></h3>
+            <h1 class="mbr-section-title align-center mbr-bold pb-3 mbr-fonts-style display-1">Body Weight Tracker </h1>
+
+    <p class="mbr-text align-left pb-3 mbr-fonts-style display-5">
+        Weight(kg) : <span th:text="${wt.weight}"></span></p>
+            <p class="mbr-text align-left pb-3 mbr-fonts-style display-5">
+                Height(m) : <span th:text="${wt.height}"></span></p>
+            <p class="mbr-text align-left pb-3 mbr-fonts-style display-5">
+                Date : <span th:text="${wt.date}"></span></p>
+    <p class="mbr-text align-left pb-3 mbr-fonts-style display-5">
+        BMI : <span th:text="${bmi}"></span></p>
+
+
+    <h4 class="mbr-text align-center pb-3 mbr-fonts-style display-5"
+        style="color:#0f7699"><span th:text="${m}"></span></h4>
+
+            <div class="mbr-section-btn align-center" style="align:center">
+    <a class="btn btn-md btn-primary display-4" th:href="@{/WTAR}"> Body Weight Tracker All Records</a>
 
 </div>
+</div>
+</div>
+
+</section>
+<div th:insert="footer"> </div>
+<script th:src="@{/assets/web/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/tether/tether.min.js}"></script>
+<script th:src="@{/assets/smoothscroll/smooth-scroll.js}"></script>
+<script th:src="@{/assets/dropdown/js/nav-dropdown.js}"></script>
+<script th:src="@{/assets/dropdown/js/navbar-dropdown.js}"></script>
+<script th:src="@{/assets/touchswipe/jquery.touch-swipe.min.js}"></script>
+<script th:src="@{/assets/theme/js/script.js}"></script>
 </body>
 </html>
