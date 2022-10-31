@@ -4,29 +4,53 @@
 <head>
   <meta charset="ISO-8859-1">
   <title> Possibility Perdiction Results</title>
-  <style type="text/css">
-    span {
-      display: inline-block;
-      width: 200px;
-      text-align: left;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+  <meta name="description" content="Website Generator Description">
+
+  <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+  <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+  <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+  <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+  <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
+
 </head>
 <body>
-<div align="center">
-  <div>
-    <form th:action="@{/logout}" method="post">
-      <p>
-        Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-      </p>
-      <input type="submit" value="Sign Out" />
-    </form>
+<div th:insert="header"> </div>
+
+<section class="header9 cid-tlcOThlGK5" id="header9-q">
+  <br/><br/> <br/><br/>
+  <div class="container">
+    <div class="media-container-column mbr-white col-lg-8 col-md-10 m-auto">
+      <h1 class="mbr-section-title align-left mbr-bold pb-3 mbr-fonts-style display-1">
+        Diabetes Possibility Prediction Result
+      </h1>
+
+      <p class="mbr-text align-left pb-3 mbr-fonts-style display-5" th:text="${m}" style="color: black">
+      </p><br/><br/>
+      <p class="mbr-text align-left pb-3 mbr-fonts-style display-5"> The Accuracy of Diabetes Possibility Prediction is <span th:text="${accuracy}"></span>%</p>
+      <br/><br/>
+    </div>
   </div>
 
-    <h3 th:text="${m}"> </h3>
-  <br/> <br/>
-  <h3> The Accuracy of Diabetes Possibility Prediction is <span th:text="${accuracy}"></span> </h3>
 
-</div>
+</section>
+<div th:insert="footer"> </div>
+<script th:src="@{/assets/web/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/tether/tether.min.js}"></script>
+<script th:src="@{/assets/smoothscroll/smooth-scroll.js}"></script>
+<script th:src="@{/assets/dropdown/js/nav-dropdown.js}"></script>
+<script th:src="@{/assets/dropdown/js/navbar-dropdown.js}"></script>
+<script th:src="@{/assets/touchswipe/jquery.touch-swipe.min.js}"></script>
+<script th:src="@{/assets/theme/js/script.js}"></script>
 </body>
 </html>
