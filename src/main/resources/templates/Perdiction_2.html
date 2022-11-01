@@ -3,100 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <title>Possibility Prediction</title>
-    <script type = "text/javascript">
-    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+    <meta name="description" content="Website Creator Description">
+
+
+    <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+    <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+    <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
 </head>
 <body>
-<div class="container text-center">
-    <div>
-        <form th:action="@{/logout}" method="post">
-            <p>
-                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-            </p>
-            <input type="submit" value="Sign Out" />
-        </form>
+<div th:insert="header"> </div>
+<section class="mbr-section form1 cid-tlcVcC8zbp" id="form1-u">
+    <div class="container">
+        <br/> <br/> <br/>
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-9">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+                    <b style="color: #0f7699">Diabetes Possibility Prediction</b>
+                </h2>
+                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
+                    Please give correct answers for given questions to get accurate prediction results
+                </h3>
+            </div>
+        </div>
     </div>
 
-    <div>
 
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-9" data-form-type="formoid">
 
-        <div align="center">
-            <h1> Diabetes Possibility Prediction </h1>
-            <form action="#" th:action="@{/Get_Prediction_2}" method="post" th:object="${p2}">
+            <form action="#" th:action="@{/Get_Prediction_2}" method="post" th:object="${p2}" class="mbr-form form-with-styler">
                 <table>
-                    <tr> <td>   <label>What is your age?</label> </td>
-                        <td><input type="number" th:field="*{age}" /><br/> </td></tr>
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">What is your age?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="number" th:field="*{age}" class="form-control display-7"/><br/> </td></tr>
 
-                    <tr> <td>   <label>What is your gender?</label> </td>
-                        <td><input type="radio" th:field="*{gender}" value="1" />Male
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">What is your gender?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{gender}" value="1"  />Male &nbsp;
                         <input type="radio" th:field="*{gender}" value="0" />Female<br/> </td> </tr>
 
-                    <tr> <td>   <label>Do you have polyuria or do you urinate more than normal?</label> </td>
-                    <td> <input type="radio" th:field="*{polyuria}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have polyuria or do you urinate more than normal?</label> </td>
+                    <td class="col-md-5  form-group">
+                        <input type="radio" th:field="*{polyuria}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                         <input type="radio" th:field="*{polyuria}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label>Do you have polydipsia or do you feel extreme thirstiness often?</label> </td>
-                    <td>    <input type="radio" th:field="*{polydipsia}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have polydipsia or do you feel extreme thirstiness often?</label> </td>
+                    <td class="col-md-5  form-group">
+                        <input type="radio" th:field="*{polydipsia}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                         <input type="radio" th:field="*{polydipsia}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label>Do you have sudden weight loss recently?</label> </td>
-                    <td> <input type="radio" th:field="*{weight_loss}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have sudden weight loss recently?</label> </td>
+                    <td class="col-md-5  form-group">
+                        <input type="radio" th:field="*{weight_loss}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                     <input type="radio" th:field="*{weight_loss}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td> <label> Do you feel more weaknesses without any sickness?</label> </td>
-                    <td><input type="radio" th:field="*{weakness}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you feel more weaknesses without any sickness?</label> </td>
+                    <td class="col-md-5  form-group">
+                        <input type="radio" th:field="*{weakness}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                     <input type="radio" th:field="*{weakness}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>    <label> Do you have polyphagia or do you often feel hungry and often eat a lot?</label> </td>
-                    <td><input type="radio" th:field="*{polyphagia}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have polyphagia or do you often feel hungry and often eat a lot?</label> </td>
+                    <td class="col-md-5  form-group">
+                        <input type="radio" th:field="*{polyphagia}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                     <input type="radio" th:field="*{polyphagia}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label> Do you have genital thrush?</label> </td>
-                    <td><input type="radio" th:field="*{genital_thrush}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have genital thrush?</label> </td>
+                    <td class="col-md-5  form-group">
+                        <input type="radio" th:field="*{genital_thrush}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                     <input type="radio" th:field="*{genital_thrush}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label> Do you have visual blurring or do you have any other vision problem?</label> </td>
-                        <td><input type="radio" th:field="*{visual_blurring}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have visual blurring or do you have any other vision problem?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{visual_blurring}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{visual_blurring}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label>Do you feel itching in your body?</label> </td>
-                        <td><input type="radio" th:field="*{itching}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you feel itching in your body?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{itching}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{itching}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label> Do you feel irritability or do you feel stressed often?</label> </td>
-                        <td><input type="radio" th:field="*{irritability}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you feel irritability or do you feel stressed often?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{irritability}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{irritability}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label>Was there any wound in your body that delayed healing or take long time to heal?</label> </td>
-                        <td><input type="radio" th:field="*{delayed_healing}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Was there any wound in your body that delayed healing or take long time to heal?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{delayed_healing}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{delayed_healing}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label> Do you have partial paresis or do you any weakness in muscle movement?</label> </td>
-                        <td><input type="radio" th:field="*{partial_paresis}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have partial paresis or do you any weakness in muscle movement?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{partial_paresis}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{partial_paresis}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label>Do you have muscle stiffness or do you feel your muscles are tight often?</label> </td>
-                        <td><input type="radio" th:field="*{muscle_stiffness}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have muscle stiffness or do you feel your muscles are tight often?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{muscle_stiffness}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{muscle_stiffness}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label> Do you have alopecia or does your hair fall out in patches?</label> </td>
-                        <td><input type="radio" th:field="*{alopecia}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do you have alopecia or does your hair fall out in patches?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{alopecia}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{alopecia}" value="0" />No<br/> </td> </tr>
 
-                    <tr> <td>   <label> Do your BMI level is greater than or equal to 30?</label> </td>
-                        <td><input type="radio" th:field="*{obesity}" value="1" />Yes
+                    <tr> <td class="col-md-7  form-group">
+                        <label class="form-control-label mbr-fonts-style display-7">
+                            Do your BMI level is greater than or equal to 30?</label> </td>
+                        <td class="col-md-5  form-group">
+                            <input type="radio" th:field="*{obesity}" value="1" />Yes &nbsp;&nbsp;&nbsp;
                             <input type="radio" th:field="*{obesity}" value="0" />No<br/> </td> </tr>
 
 
 
                 </table>
-                <br/>
-
-                <button type="submit"> Get Prediction </button>
+<br/>
+                <div class="col-md-12 input-group-btn align-center">
+                <button type="submit" class="btn btn-primary btn-form display-4">Get Prediction </button> </div>
 
             </form>
+            </div>
         </div>
+
     </div>
-</div>
+        </section>
+        <div th:insert="footer"> </div>
+        <script th:src="@{/assets/web/assets/jquery/jquery.min.js}"></script>
+        <script th:src="@{/assets/popper/popper.min.js}"></script>
+        <script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+        <script th:src="@{/assets/tether/tether.min.js}"></script>
+        <script th:src="@{/assets/smoothscroll/smooth-scroll.js}"></script>
+        <script th:src="@{/assets/dropdown/js/nav-dropdown.js}"></script>
+        <script th:src="@{/assets/dropdown/js/navbar-dropdown.js}"></script>
+        <script th:src="@{/assets/touchswipe/jquery.touch-swipe.min.js}"></script>
+        <script th:src="@{/assets/theme/js/script.js}"></script>
 </body>
 </html>

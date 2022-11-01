@@ -3,58 +3,107 @@
 <head>
     <meta charset="UTF-8">
     <title>Risk Prediction</title>
-    <script type = "text/javascript">
-    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+    <meta name="description" content="Website Creator Description">
+
+
+    <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+    <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+    <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
 </head>
 <body>
-<div class="container text-center">
-    <div>
-        <form th:action="@{/logout}" method="post">
-            <p>
-                Hi!  <b>[[${#request.userPrincipal.principal.fullName}]]</b>
-            </p>
-            <input type="submit" value="Sign Out" />
-        </form>
+<div th:insert="header"> </div>
+<section class="mbr-section form1 cid-tlcVcC8zbp" id="form1-u">
+    <div class="container">
+        <br/> <br/> <br/>
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-8">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+                    <b style="color: #0f7699">Diabetes Risk Prediction</b>
+                </h2>
+                <h3 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-5">
+                    Please give correct answers for given questions to get accurate prediction results
+                </h3>
+            </div>
+        </div>
     </div>
 
-    <div>
 
 
-        <div align="center">
-            <h1> Diabetes Risk Prediction</h1>
-            <form action="#" th:action="@{/Get_Prediction_1}" method="post" th:object="${p1}">
-<table>
-             <tr> <td>   <label>What is your age?</label> </td>
-                 <td><input type="number" th:field="*{age}" /><br/> </td></tr>
 
-            <tr> <td>  <label>What is your BMI in (kg/m)?</label></td>
-                <td><input type="number" step="any" th:field="*{BMI}" /><br/></td> </tr>
 
-             <tr> <td>   <label>What is the current glucose level in (mg/dL)?</label></td>
-                 <td><input type="number" th:field="*{glucose}" /><br/></td> </tr>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-8" data-form-type="formoid">
 
-            <tr> <td>   <label>What is your current blood pressure level in (mm Hg) ?</label></td>
-                <td><input type="number" th:field="*{bloodPressure}" /><br/> </td></tr>
+            <form action="#" th:action="@{/Get_Prediction_1}" method="post" th:object="${p1}" class="mbr-form form-with-styler">
+           <table>
+             <tr> <td class="col-md-7  form-group">
+                 <label class="form-control-label mbr-fonts-style display-7">What is your age?</label> </td>
+                 <td class="col-md-5  form-group">
+                     <input type="number" th:field="*{age}" class="form-control display-7"/><br/> </td></tr>
 
-            <tr> <td>   <label>What is the number of times you get pregnant?</label></td>
-                <td><input type="number" th:field="*{pregnancies}" /><br/></td> </tr>
+            <tr> <td  class="col-md-7  form-group">
+                <label class="form-control-label mbr-fonts-style display-7">What is your BMI (Body Mass Index)?</label></td>
+                <td class="col-md-5  form-group">
+                    <input type="number" step="any" th:field="*{BMI}" class="form-control display-7" /><br/></td> </tr>
 
-            <tr><td>    <label>What is your skin thickness in (mm) ? </br>
+             <tr> <td class="col-md-7  form-group">
+                 <label class="form-control-label mbr-fonts-style display-7">What is your current glucose level in (mg/dL)?</label></td>
+                 <td class="col-md-5  form-group">
+                     <input type="number" th:field="*{glucose}" class="form-control display-7" /><br/></td> </tr>
+
+            <tr> <td class="col-md-7  form-group">
+                <label class="form-control-label mbr-fonts-style display-7">What is your current blood pressure level in (mm Hg)?</label></td>
+                <td class="col-md-5  form-group">
+                    <input type="number" th:field="*{bloodPressure}" class="form-control display-7" /><br/> </td></tr>
+
+            <tr> <td class="col-md-7  form-group">
+                <label class="form-control-label mbr-fonts-style display-7">What is the number of times you get pregnant?</label></td>
+                <td class="col-md-5  form-group">
+                    <input type="number" th:field="*{pregnancies}" class="form-control display-7" /><br/></td> </tr>
+
+            <tr><td class="col-md-7  form-group">
+                <label class="form-control-label mbr-fonts-style display-7">What is your skin thickness in (mm) ?
                  ( Normally skin thickness of a man is  12mm and a women is 23mm ) </label> </td>
-                <td><input type="number" th:field="*{skinThickness}"/><br/></td> </tr>
+                <td class="col-md-5  form-group">
+                    <input type="number" th:field="*{skinThickness}" class="form-control display-7"/><br/></td> </tr>
 
-            <tr> <td>   <label>What is your insulin level in (mu U/ml)?</label> </td>
-                <td><input type="number" th:field="*{insulin}" /><br/></td> </tr>
+            <tr> <td class="col-md-7  form-group">
+                <label class="form-control-label mbr-fonts-style display-7">What is your insulin level in (mu U/ml)?</label> </td>
+                <td class="col-md-5  form-group">
+                    <input type="number" th:field="*{insulin}"class="form-control display-7" /><br/></td> </tr>
 
 
 
 </table>
-
-            <button type="submit"> Get Prediction </button>
+                <div class="col-md-12 input-group-btn align-center">
+            <button type="submit" class="btn btn-primary btn-form display-4"> Get Prediction </button> </div>
 
 </form>
         </div>
+        </div>
+
     </div>
-</div>
+</section>
+<div th:insert="footer"> </div>
+<script th:src="@{/assets/web/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/tether/tether.min.js}"></script>
+<script th:src="@{/assets/smoothscroll/smooth-scroll.js}"></script>
+<script th:src="@{/assets/dropdown/js/nav-dropdown.js}"></script>
+<script th:src="@{/assets/dropdown/js/navbar-dropdown.js}"></script>
+<script th:src="@{/assets/touchswipe/jquery.touch-swipe.min.js}"></script>
+<script th:src="@{/assets/theme/js/script.js}"></script>
 </body>
 </html>
