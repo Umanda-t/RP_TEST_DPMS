@@ -1,51 +1,90 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
 
-<!--<html lang="en">
--->
 <head>
     <meta charset="UTF-8">
     <title>SignUp</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+  <meta name="description" content="Website Creator Description">
+
+
+  <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+  <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+  <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+  <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+  <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+  <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
 </head>
 <body>
-<div align="center">
-
-  <div>
-    <h1> Sign Up</h1>
+<div th:insert="header1"> </div>
+<section class="mbr-section form1 cid-tlcVcC8zbp" id="form1-u">
+  <div class="container">
+    <br/> <br/> <br/>
+    <div class="row justify-content-center">
+      <div class="title col-12 col-lg-8">
+        <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+          <b style="color: #0f7699"> Sign Up</b>
+        </h2>
+        <div align="center">
+          <img th:src="@{/images/userlogin.png}" style="width:120pt; height:113pt;" />
+        </div>
+      </div>
+    </div>
   </div>
-  <br>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="media-container-column col-lg-8" data-form-type="formoid">
   <form action="#" th:action="@{/process_register}" th:object="${user}"
-        method="post" style="max-width: 600px; margin: 0 auto;">
-    <div>
-      <label>User Name: </label>
+        method="post" class="mbr-form form-with-styler">
 
-      <input type="text" th:field="*{username}"
-             required minlength="2" maxlength="20"/>
+      <div align="center">
+        <div class="dragArea row">
+    <div class="col-md-4  form-group" >
+      <label class="form-control-label mbr-fonts-style display-5">
+        User Name </label></div>
+      <div class="col-md-7  form-group">
+      <input  class="form-control display-7" type="text" th:field="*{username}" required minlength="2" maxlength="20"/>
     </div>
 
-    <div>
-      <label >E-mail: </label>
-
-      <input type="email" th:field="*{email}"  required />
+    <div class="col-md-4  form-group" >
+      <label class="form-control-label mbr-fonts-style display-5">
+        E-mail </label></div>
+    <div class="col-md-7 form-group" >
+      <input  class="form-control display-7" type="email" th:field="*{email}"  required />
     </div>
 
 
-    <div>
-      <label >Password: </label>
-
-      <input type="password" th:field="*{password}"
+    <div class="col-md-4  form-group" >
+      <label class="form-control-label mbr-fonts-style display-5">
+        Password </label>  </div>
+      <div class="col-md-7  form-group" >
+      <input  class="form-control display-7" type="password" th:field="*{password}"
              required minlength="6" maxlength="10"/>
     </div>
 
 
+    <div class="col-md-12 input-group-btn align-center">
+    <button type="submit" class="btn btn-primary btn-form display-4" >Sign Up</button>
+    </div>
 
-    <button type="submit">Sign Up</button>
-
-
+      </div>
+    </div>
   </form>
 
-  <br/><br/>
-  <h4><span th:text="${ms}"></span></h4>
-</div>
+<br/>
+  <h5 class="mbr-section-subtitle align-center mbr-light pb-3 mbr-fonts-style display-6" style="color: red">
+    <span th:text="${ms}"></span></h5>
+      </div>
+    </div>
+  </div>
+</section>
+<div th:insert="footer"> </div>
 </body>
 </html>
