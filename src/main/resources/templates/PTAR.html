@@ -4,63 +4,115 @@
 <head>
     <meta charset="utf-8"/>
     <title>Blood Pressure Tracker All Records</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+    <meta name="description" content="Website Maker Description">
+
+    <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/datatables/data-tables.bootstrap4.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+    <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+    <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
 </head>
 <body>
-<div align="center">
-    <h1>Blood Pressure Tracker All Records</h1>
-    <br/><br/>
-    <h3>Average Systolic Blood Pressure Level= <span th:text="${avg1}"></span></h3>
-    <h3>Average Diastolic Blood Pressure Level= <span th:text="${avg2}"></span></h3>
-    <br/><br/>
+<div th:insert="header"> </div>
+<section class="section-table cid-tlcWAjhFaL" id="table1-y">
+    <br/> <br/> <br/>
+    <h1 style="color: #0f7699" class="mbr-section-title mbr-fonts-style align-center pb-3 display-2">
+        <b>Blood Pressure Tracker All Records</b></h1>
+
+    <h3 class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5" style="color: black">
+       <b> Average Systolic Blood Pressure Level= <span th:text="${avg1}"></span></b></h3>
+    <h3 style="color: black" class="mbr-section-subtitle mbr-fonts-style align-center pb-5 mbr-light display-5">
+        <b> Average Diastolic Blood Pressure Level= <span th:text="${avg2}"></span></b></h3>
 
 
-    <table border="1" cellpadding="10">
+    <div class="container scroll">
+    <table border="1" cellpadding="10" class="table isSearch" cellspacing="0" data-empty="No matching records found">
         <thead>
-        <tr>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Systolic Blood Pressure(mmHg)</th>
-            <th>Diastolic Blood Pressure(mmHg)</th>
-            <th>Pulse Rate(BMP)</th>
-            <th>Actions</th>
+        <tr class="table-heads">
+            <th class="head-item mbr-fonts-style display-5">
+                Date</th>
+            <th class="head-item mbr-fonts-style display-5">
+                Time</th>
+            <th class="head-item mbr-fonts-style display-5">
+                Systolic Blood Pressure(mmHg)</th>
+            <th class="head-item mbr-fonts-style display-5">
+                Diastolic Blood Pressure(mmHg)</th>
+            <th class="head-item mbr-fonts-style display-5">
+                Pulse Rate(BMP)</th>
+            <th class="head-item mbr-fonts-style display-5">
+                Actions</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="pt : ${listPT}">
 
-            <td th:text="${pt.date}">Date</td>
-            <td th:text="${pt.time}">Time</td>
-            <td th:text="${pt.systolic}">Systolic Blood Pressure</td>
-            <td th:text="${pt.diastolic}">Diastolic Blood Pressure</td>
-            <td th:text="${pt.pulse}">Pulse Rate</td>
-            <td>
-                <a th:href="@{'/pedit/' + ${pt.id}}">Edit</a>
+            <td th:text="${pt.date}" class="body-item mbr-fonts-style display-9">
+                Date</td>
+            <td th:text="${pt.time}" class="body-item mbr-fonts-style display-7">
+                Time</td>
+            <td th:text="${pt.systolic}" class="body-item mbr-fonts-style display-7">
+                Systolic Blood Pressure</td>
+            <td th:text="${pt.diastolic}" class="body-item mbr-fonts-style display-7">
+                Diastolic Blood Pressure</td>
+            <td th:text="${pt.pulse}" class="body-item mbr-fonts-style display-7">
+                Pulse Rate</td>
+            <td class="body-item mbr-fonts-style display-9">
+                <div class="mbr-section-btn text-center">
+                <a class="btn btn-primary display-4" th:href="@{'/pedit/' + ${pt.id}}">Edit</a>
                 &nbsp;&nbsp;&nbsp;
-                <a th:href="@{'/pdelete/' + ${pt.id}}">Delete</a>
+                <a class="btn btn-primary display-4" th:href="@{'/pdelete/' + ${pt.id}}">Delete</a>
+                </div>
             </td>
         </tr>
         </tbody>
     </table>
-    <a th:if="${currentPage > 1}" th:href="@{'/ppage/1'}">First</a>
-    <span th:unless="${currentPage > 1}">First</span>
-    <a th:if="${currentPage > 1}" th:href="@{'/ppage/' + ${currentPage - 1}}">Previous</a>
-    <span th:unless="${currentPage > 1}">Previous</span>
-    <span th:each="i: ${#numbers.sequence(1, totalPages)}">
-    <a th:if="${currentPage != i}" th:href="@{'/ppage/' + ${i}}">[[${i}]]</a>
-    <span th:unless="${currentPage != i}">[[${i}]]</span>
+    </div>
+    <div class="dataTables_info mbr-fonts-style display-7 align-center">
+    <a class="infoBefore" th:if="${currentPage > 1}" th:href="@{'/ppage/1'}">First</a>
+    <span class="infoBefore" th:unless="${currentPage > 1}">First</span>
+    <a class="infoBefore" th:if="${currentPage > 1}" th:href="@{'/ppage/' + ${currentPage - 1}}">Previous</a>
+    <span class="infoBefore" th:unless="${currentPage > 1}">Previous</span>
+    <span class="infoBefore" th:each="i: ${#numbers.sequence(1, totalPages)}">
+    <a class="infoBefore" th:if="${currentPage != i}" th:href="@{'/ppage/' + ${i}}">[[${i}]]</a>
+    <span class="infoBefore" th:unless="${currentPage != i}">[[${i}]]</span>
     &nbsp;
 </span>
-    <a th:if="${currentPage < totalPages}" th:href="@{'/ppage/' + ${currentPage + 1}}">Next</a>
-    <span th:unless="${currentPage < totalPages}">Next</span>
-    <a th:if="${currentPage < totalPages}" th:href="@{'/ppage/' + ${totalPages}}">Last</a>
-    <span th:unless="${currentPage < totalPages}">Last</span>
-    <br/>
+    <a class="infoBefore" th:if="${currentPage < totalPages}" th:href="@{'/ppage/' + ${currentPage + 1}}">Next</a>
+    <span class="infoBefore" th:unless="${currentPage < totalPages}">Next</span>
+    <a class="infoBefore" th:if="${currentPage < totalPages}" th:href="@{'/ppage/' + ${totalPages}}">Last</a>
+    <span class="infoBefore" th:unless="${currentPage < totalPages}">Last</span>
 
-    <h3><a th:href="@{/PTDU}"> Blood Pressure Tracker Daily Update</a></h3>
+    </div>
+    <div class="mbr-section-btn text-center">
+    <a class="btn btn-primary display-4" th:href="@{/PTDU}">
+        Blood Pressure Tracker Add Update</a></div>
 
-    <br/> <br/>
-    <button><a th:href="@{/PT_pdf}">Export Blood Pressure Tracker All Records to PDF</a></button>
-
-</div>
+        <div  class="mbr-section-btn text-center">
+    <a class="btn btn-md btn-white-outline display-4" style="background-color: black" th:href="@{/PT_pdf}">
+        Export Blood Pressure Tracker All Records to PDF</a></div>
+    </div>
+</section>
+    <div th:insert="footer"> </div>
+    <script th:src="@{/assets/web/assets/jquery/jquery.min.js}"></script>
+    <script th:src="@{/assets/popper/popper.min.js}"></script>
+    <script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/assets/tether/tether.min.js}"></script>
+    <script th:src="@{/assets/smoothscroll/smooth-scroll.js}"></script>
+    <script th:src="@{/assets/dropdown/js/nav-dropdown.js}"></script>
+    <script th:src="@{/assets/dropdown/js/navbar-dropdown.js}"></script>
+    <script th:src="@{/assets/touchswipe/jquery.touch-swipe.min.js}"></script>
+    <script th:src="@{/assets/datatables/jquery.data-tables.min.js}"></script>
+    <script th:src="@{/assets/datatables/data-tables.bootstrap4.min.js}"></script>
+    <script th:src="@{/assets/theme/js/script.js}"></script>
 </body>
 </html>
