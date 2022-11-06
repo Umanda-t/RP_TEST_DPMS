@@ -41,16 +41,17 @@
     </h3>
 
 
-
-    <div class="media-container-row pt-5 mt-2">
-
-        <progress id="file" th:value="${result1}" min="0" max="100" style="width:538pt; height:83pt; align:center;">
+    <div class="card p-3 align-center">
+    <div class="circle-wrap">
+        <span>0%</span>
+        <progress id="file" th:value="${result1}" min="0" max="100" style="width:538pt; height:80pt; align:center;">
         </progress>
+        <span>100%</span>
+    </div>
     </div>
 
-
     <div class="media-container-row pt-1">
-        <h4 class="card-title py-2 mbr-fonts-style display-5" style="align: center">
+        <h4 class="card-title py-2 mbr-fonts-style display-5" style="align: center;color: blue">
             <span th:text="${result1}"></span> %
         </h4>
 
