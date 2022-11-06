@@ -41,7 +41,7 @@
         <div class="row justify-content-center">
             <div class="media-container-column col-lg-8" data-form-type="formoid">
   <form th:action="@{/login}" method="post"  class="mbr-form form-with-styler">
-
+      <div align="center">
     <div th:if="${param.error}">
       <p class="text-danger">[[${session.SPRING_SECURITY_LAST_EXCEPTION.message}]]</p>
     </div>
@@ -51,7 +51,7 @@
     </div>
 
 
-      <div align="center">
+
         <div  class="col-md-5  form-group align-center">
         <input class="form-control display-7" type="text" name="username"  placeholder="Username" required autofocus/>
       </div>

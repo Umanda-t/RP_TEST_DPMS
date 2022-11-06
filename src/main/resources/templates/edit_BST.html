@@ -4,46 +4,77 @@
 <head>
     <meta charset="utf-8" />
     <title>Edit Record </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+    <meta name="description" content="Website Creator Description">
+
+    <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+    <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+    <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
 </head>
 <body>
-<div align="center">
-    <h1>Edit Record</h1>
-    <br />
+<div th:insert="header"> </div>
+<section class="mbr-section form1 cid-tlcVcC8zbp" id="form1-u">
+    <div class="container">
+        <br/> <br/> <br/>
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-5">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+                    <b style="color: #0f7699">Edit Record</b>
+                </h2>
+
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-5" data-form-type="formoid">
     <form action="#" th:action="@{/save}" th:object="${bst}"
           method="post">
+        <div class="dragArea row">
 
-        <table border="0" cellpadding="10">
+        <table align="center">
             <tr>
-                <td>Record NO:</td>
-                <td>
-                    <input type="text" th:field="*{id}" readonly="readonly" />
+                <td class="col-md-7  form-group">Record NO</td>
+                <td class="col-md-5  form-group">
+                    <input type="text" th:field="*{id}" readonly="readonly" class="form-control display-7"/>
                 </td>
             </tr>
             <tr>
-                <td>User Name:</td>
-                <td>
-                    <input type="text" th:field="*{username}" readonly="readonly" />
+                <td class="col-md-7  form-group">User Name</td>
+                <td class="col-md-5  form-group">
+                    <input type="text" th:field="*{username}" readonly="readonly" class="form-control display-7" />
                 </td>
             </tr>
             <tr>
-                <td>Date:</td>
-                <td>
-                    <input type="date" th:field="*{date}" required/>
+                <td class="col-md-7  form-group">Date</td>
+                <td class="col-md-5  form-group">
+                    <input type="date" th:field="*{date}" required class="form-control display-7"/>
                 </td>
             </tr>
             <tr>
-                <td>Blood Sugar Level:</td>
-                <td>
-                    <input type="text" th:field="*{bloodsugar}" required />
+                <td class="col-md-7  form-group">Blood Sugar Level</td>
+                <td class="col-md-5  form-group">
+                    <input type="text" th:field="*{bloodsugar}" required class="form-control display-7" />
                 </td>
             </tr>
             <tr>
-                <td>Time:</td>
-                <td><input type="time" th:field="*{time}" required /></td>
+                <td class="col-md-7  form-group">Time</td>
+                <td class="col-md-5  form-group">
+                    <input type="time" th:field="*{time}" required class="form-control display-7" /></td>
             </tr>
             <tr>
-                <td>Period:</td>
-                <td><select type="text" th:field="*{period}" required/>
+                <td class="col-md-7  form-group">Period</td>
+                <td class="col-md-5  form-group">
+                    <select type="text" th:field="*{period}" required class="form-control display-7"/>
                     <option  value="Before Breakfast">Before Breakfast</option>
                     <option  value="After Breakfast"> After Breakfast </option>
                     <option  value="Before Lunch"> Before Lunch </option>
@@ -54,11 +85,31 @@
                   <select/>
 
             </tr>
-            <tr>
-                <td colspan="2"><button type="submit">Save</button> </td>
-            </tr>
         </table>
+
+        </div>
+        <br/>
+        <div class="mbr-form form-with-styler">
+            <div class="col-md-12 input-group-btn align-center">
+                <button class="btn btn-primary btn-form display-4" type="submit">Save</button> </div></div>
+
+
+
     </form>
-</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<div th:insert="footer"> </div>
+<script th:src="@{/assets/web/assets/jquery/jquery.min.js}"></script>
+<script th:src="@{/assets/popper/popper.min.js}"></script>
+<script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/assets/tether/tether.min.js}"></script>
+<script th:src="@{/assets/smoothscroll/smooth-scroll.js}"></script>
+<script th:src="@{/assets/dropdown/js/nav-dropdown.js}"></script>
+<script th:src="@{/assets/dropdown/js/navbar-dropdown.js}"></script>
+<script th:src="@{/assets/touchswipe/jquery.touch-swipe.min.js}"></script>
+<script th:src="@{/assets/theme/js/script.js}"></script>
 </body>
 </html>
