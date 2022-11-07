@@ -3,44 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <title>PTDU</title>
-    <script type = "text/javascript">
-    </script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="generator" content="Mobirise v4.12.4, mobirise.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <link rel="shortcut icon" th:href="@{/assets/images/h-536x529.jpeg}" type="image/x-icon">
+    <meta name="description" content="Website Creator Description">
+
+    <link rel="stylesheet" th:href="@{/assets/web/assets/mobirise-icons/mobirise-icons.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-grid.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/bootstrap/css/bootstrap-reboot.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/tether/tether.min.css}">
+    <link rel="stylesheet" th:href="@{/assets/dropdown/css/style.css}">
+    <link rel="stylesheet" th:href="@{/assets/theme/css/style.css}">
+    <link rel="preload" as="style" th:href="@{/assets/mobirise/css/mbr-additional.css}">
+    <link rel="stylesheet" th:href="@{/assets/mobirise/css/mbr-additional.css}" type="text/css">
 </head>
 <body>
-<div class="container text-center">
+<div th:insert="header"> </div>
+<section class="mbr-section form1 cid-tlcVcC8zbp" id="form1-u">
+    <div class="container">
+        <br/> <br/> <br/>
+        <div class="row justify-content-center">
+            <div class="title col-12 col-lg-10">
+                <h2 class="mbr-section-title align-center pb-3 mbr-fonts-style display-2">
+                    <b style="color: #0f7699">Blood Pressure Tracker Add Update</b>
+                </h2>
 
-
-    <div>
-
-
-        <div align="center">
-            <h1>Blood Pressure Tracker Add Update</h1>
-            <form action="#" th:action="@{/pt_add_update}" method="post" th:object="${pt}">
-                <label>User Name:</label>
-                <input type="text" th:field="*{username}" readonly="readonly"/><br/>
-
-                <label>Systolic Blood Pressure (mmHg):</label>
-                <input type="number" th:field="*{systolic}" required /><br/>
-
-                <label>Diastolic Blood Pressure (mmHg):</label>
-                <input type="number" th:field="*{diastolic}" required /><br/>
-
-                <label>Pulse Rate (BMP):</label>
-                <input type="number" th:field="*{pulse}" required /><br/>
-
-                <label>Date:</label>
-                <input type="date" th:field="*{date}" required /><br/>
-
-                <label>Time:</label>
-                <input type="time" th:field="*{time}" required /><br/>
-
-
-                <br/>
-                <button type="submit">Add</button>
-            </form>
+            </div>
         </div>
-
     </div>
-</div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="media-container-column col-lg-5" data-form-type="formoid">
+
+            <form action="#" th:action="@{/pt_add_update}" method="post" th:object="${pt}">
+                <div class="dragArea row">
+                <label  class="col-md-7  form-group">User Name</label>
+                    <div class="col-md-5  form-group">
+                <input type="text" th:field="*{username}" readonly="readonly" class="form-control display-7"/></div>
+
+                <label  class="col-md-7  form-group">Systolic Blood Pressure (mmHg)</label>
+                    <div class="col-md-5  form-group">
+                <input type="text" th:field="*{systolic}" required class="form-control display-7"/></div>
+
+                <label class="col-md-7  form-group">Diastolic Blood Pressure (mmHg)</label>
+                        <div class="col-md-5  form-group">
+                <input type="text" th:field="*{diastolic}" required class="form-control display-7"/></div>
+
+                <label  class="col-md-7  form-group">Pulse Rate (BMP)</label>
+                            <div class="col-md-5  form-group">
+                <input type="text" th:field="*{pulse}" required class="form-control display-7"/></div>
+
+                <label  class="col-md-7  form-group">Date</label>
+                                <div class="col-md-5  form-group">
+                <input type="date" th:field="*{date}" required class="form-control display-7" /></div>
+
+                <label  class="col-md-7  form-group">Time</label>
+                       <div class="col-md-5  form-group">
+                <input type="time" th:field="*{time}" required class="form-control display-7" /></div>
+
+
+                </div>
+                <div class="mbr-form form-with-styler">
+                    <div class="col-md-12 input-group-btn align-center">
+                <button class="btn btn-primary btn-form display-4" type="submit">Add</button>
+                    </div>
+                </div>
+            </form>
+            </div>
+            </div>
+
+            </div>
+            </section>
+            <div th:insert="footer"> </div>
+            <script th:src="@{/assets/web/assets/jquery/jquery.min.js}"></script>
+            <script th:src="@{/assets/popper/popper.min.js}"></script>
+            <script th:src="@{/assets/bootstrap/js/bootstrap.min.js}"></script>
+            <script th:src="@{/assets/tether/tether.min.js}"></script>
+            <script th:src="@{/assets/smoothscroll/smooth-scroll.js}"></script>
+            <script th:src="@{/assets/dropdown/js/nav-dropdown.js}"></script>
+            <script th:src="@{/assets/dropdown/js/navbar-dropdown.js}"></script>
+            <script th:src="@{/assets/touchswipe/jquery.touch-swipe.min.js}"></script>
+            <script th:src="@{/assets/theme/js/script.js}"></script>
 </body>
 </html>
