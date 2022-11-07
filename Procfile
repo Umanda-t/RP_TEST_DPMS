@@ -1,1 +1,1 @@
-web: java -jar build/libs/DPMS_Research_Sample-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+web:java -jar build/libs/DPMS_Research_Sample-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
