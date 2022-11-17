@@ -1,1 +1,1 @@
-web:java -jar build/libs/DPMS_Research_Sample-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+web: java $JAVA_OPTS -jar target/DPMS_Research_Sample-0.0.1-SNAPSHOT.jar --server.port=$PORT $JAR_OPTS
